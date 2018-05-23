@@ -48,7 +48,7 @@ api.html
         'miner_stats.html': 'miner_stats',
         'miners.html': 'miners', 
 				'statistics.html': 'statistics'
-	//			'workers.html': 'workers' //Added
+				'workers.html': 'workers' //Added
 //        'faq.html': 'faq',
     };
 
@@ -314,7 +314,6 @@ app.all('*',function (req, res, next) {
 
     app.use(compress());
     app.get('/miners/:address', minerpage);
-		app.get('/workers/:address', minerpage);
     app.get('/:page', route);
     app.get('/', route);
 

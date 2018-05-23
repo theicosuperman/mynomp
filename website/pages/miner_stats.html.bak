@@ -222,7 +222,7 @@
                         '<td>' + formatDateTime(poolData[pool].bills[p].time)+ '</td>' +
                        /* '<td>' + Math.round(poolData[pool].payments[p].shares)+ '</td>' +*/
                         '<td>'+ poolData[pool].bills[p].payAmounts[statAdd.split(".")[0]] +' '+ poolData[pool].symbol +'</td>' +
-                        '<td><a href="http://explorer.your.coin/tx/'+ poolData[pool].bills[p].txid +'" target="_blank">'+ poolData[pool].bills[p].txid +'</a></td>' +
+                        '<td><a href="http://testnet-explorer.ulord.one/tx/'+ poolData[pool].bills[p].txid +'" target="_blank">'+ poolData[pool].bills[p].txid +'</a></td>' +
                         ' </tr>'
 				}
 			}

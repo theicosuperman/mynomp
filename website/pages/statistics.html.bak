@@ -48,14 +48,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
 <script>
     var option = indexOption();
 		$(function(){
