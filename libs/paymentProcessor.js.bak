@@ -729,7 +729,7 @@ function SetupForPool(logger, poolOptions, setupFinished) {
 
                         console.log("JSON.stringify round = " + JSON.stringify(round));
                         // update confirmations for round
-                        //		console.log("tsymentProcessor.js, tx.result.confirmations = " + JSON.stringify(tx.result));
+                        		console.log("PaymentProcessor.js, tx.result.confirmations = " + JSON.stringify(tx.result));
 
                         if (!tx.result || !tx.result.confirmations) {
                             round.confirmations = 0;

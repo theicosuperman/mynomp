@@ -771,8 +771,8 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                         // get reward for newly generated blocks
                         if (round.category === 'generate' || round.category === 'immature') {
                             round.reward = coinsRound(parseFloat(generationTx.amount || generationTx.value));
-                            //	console.log("2round.reward = " + round.reward);
-                            //	console.log("2JSON.stringify round = " + JSON.stringify(round));
+                            console.log("2round.reward = " + round.reward);
+                            console.log("2JSON.stringify round = " + JSON.stringify(round));
                         }
                     });
 
@@ -890,7 +890,15 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                                 performPayment = false;
                             }
                             // if we can not perform payment
-                            if (performPayment === false) {
+                           
+
+
+
+
+
+
+
+													 if (performPayment === false) {
                                 // convert category generate to immature
                                 rounds = rounds.filter(function (r) {
                                     switch (r.category) {
@@ -903,11 +911,9 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                                             return true;
                                         default:
                                             return false;
-                                    }
-                                    ;
+                                    };                                    ;
                                 });
                             }
-
                             // handle rounds
                             rounds.forEach(function (round, i) {
                                 var workerShares = allWorkerShares[i];
@@ -915,7 +921,37 @@ function SetupForPool(logger, poolOptions, setupFinished) {
                                     err = true;
                                     logger.error(logSystem, logComponent, 'No worker shares for round: ' + round.height + ' blockHash: ' + round.blockHash);
                                     return;
+                   /*
+		var workerTimesWithPoolIds = allWorkerTimes[i];
+                              
+															var workerTimes = {};
+                                var maxTime = 0;
+                                if (pplntEnabled === true) {
+	                                for (var workerAddressWithPoolId in workerTimesWithPoolIds){
+                                        var workerWithoutPoolId = workerAddressWithPoolId.split('.')[0];
+                                        var workerTimeFloat = parseFloat(workerTimesWithPoolIds[workerAddressWithPoolId]);
+                                        if (maxTime < workerTimeFloat) {
+                                            maxTime = workerTimeFloat;
+                                        }
+	                                    if (!(workerWithoutPoolId in workerTimes)) {
+	                                        workerTimes[workerWithoutPoolId] = workerTimeFloat;
+	                                    } else {
+                                            // add time from other instances with penalty
+	                                        if (workerTimes[workerWithoutPoolId] < workerTimeFloat) {
+	                                            workerTimes[workerWithoutPoolId] = workerTimes[workerWithoutPoolId] * 0.5 + workerTimeFloat;
+	                                        } else {
+                                                workerTimes[workerWithoutPoolId] = workerTimes[workerWithoutPoolId] + workerTimeFloat * 0.5; 
+                                            }
+                                            if (workerTimes[workerWithoutPoolId] > maxTime) {
+                                                workerTimes[workerWithoutPoolId] = maxTime;
+                                            }
+	                                    }
+	                                }
                                 }
+
+									 */
+														 
+														 
                                 var workerTimes = allWorkerTimes[i];
 
                                 switch (round.category) {
